@@ -1,27 +1,27 @@
 @echo off
 setlocal enabledelayedexpansion
 
-rem ---’è”’è‹`---
+rem ---å®šæ•°å®šç¾©---
 
-rem psr.exe‚ÌƒpƒX
+rem psr.exeã®ãƒ‘ã‚¹
 set PSR_PATH=%systemroot%\system32\psr.exe
 
-rem psr.exe‚ÌˆêŽž‰æ‘œ•Û‘¶æ
+rem psr.exeã®ä¸€æ™‚ç”»åƒä¿å­˜å…ˆ
 set PSR_TMP_SAVE_PATH=%userprofile%\appdata\local\microsoft\
 
-rem ‰æ‘œ‚Ì•Û‘¶”(min:1 max:100)
+rem ç”»åƒã®ä¿å­˜æ•°(min:1 max:100)
 set MAX_SAVE_NUM=100
 
-rem o—Íƒtƒ@ƒCƒ‹•Û‘¶æ
+rem å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜å…ˆ
 set SAVE_FILE_PATH=%userprofile%\desktop\
 
-rem o—Íƒtƒ@ƒCƒ‹•Û‘¶–¼
+rem å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜å
 set SAVE_FILE_NAME=capture.zip
 
-rem ŒŸ’mŠÔŠu
+rem æ¤œçŸ¥é–“éš”
 set INTERVAL=3
 
-rem ‚¢‚Á‚½‚ño—Í‚ðs‚¤‰æ‘œ‚Ì–‡”‚Ìè‡’l
+rem ã„ã£ãŸã‚“å‡ºåŠ›ã‚’è¡Œã†ç”»åƒã®æžšæ•°ã®é–¾å€¤
 set OUTPUT_NUM=5
 
 set COPY_IMAGES_FUNC_PATH=%tmp%\copyImagesfunc.bat
@@ -32,11 +32,11 @@ set EXEC_SLEEP_TIME=3
 
 rem -------------
 
-rem Šù‘¶ƒtƒ@ƒCƒ‹ŒŸõ‚Ì•s‹ï‡C³
-rem Win8.1ŠÂ‹«‚Å‚ÌƒLƒƒƒvƒ`ƒƒ”ŒŸ’m‚Ì•s‹ï‡C³
-rem ctrl+c‚Å‚Ì‹­§I—¹Žž‚Ìo—Í•s‹ï‡C³
-rem msg‚Ì•\Ž¦æ‚ðÚ‘±ƒ†[ƒU‚Ì‚Ý‚É•ÏX
-rem autoPsrProcessMonitor‚ÌƒSƒ~íœ
+rem æ—¢å­˜ãƒ•ã‚¡ã‚¤ãƒ«æ¤œç´¢ã®ä¸å…·åˆä¿®æ­£
+rem Win8.1ç’°å¢ƒã§ã®ã‚­ãƒ£ãƒ—ãƒãƒ£æ•°æ¤œçŸ¥ã®ä¸å…·åˆä¿®æ­£
+rem ctrl+cã§ã®å¼·åˆ¶çµ‚äº†æ™‚ã®å‡ºåŠ›ä¸å…·åˆä¿®æ­£
+rem msgã®è¡¨ç¤ºå…ˆã‚’æŽ¥ç¶šãƒ¦ãƒ¼ã‚¶ã®ã¿ã«å¤‰æ›´
+rem autoPsrProcessMonitorã®ã‚´ãƒŸå‰Šé™¤
 rem 
 rem 
 rem 
@@ -49,7 +49,7 @@ rem
 rem 
 rem 
 
-rem ---–{ˆ—---
+rem ---æœ¬å‡¦ç†---
 
 echo.
 echo ******* AutoPsr *********
@@ -58,9 +58,9 @@ echo *  Updated 2014/11/19   *
 echo *************************
 echo.
 echo *********************************** CAUTION ************************************
-echo * 1. ƒoƒbƒ`‚ðI—¹‚³‚¹‚éÛ‚Íctrl+c‚Å‹­§I—¹‚³‚¹‚Ä‰º‚³‚¢B                      *
-echo * 2. “¯Žž‚É‹N“®‚µ‚Ä‚¢‚é"AutoPsrProcessMonitor"‚Íâ‘Î‚ÉI—¹‚³‚¹‚È‚¢‚Å‰º‚³‚¢B   *
-echo * 3. –œ‚ªˆêI—¹‚³‚¹‚Ä‚µ‚Ü‚Á‚½ê‡‚ÍA•Ê“r"psr /stop"ƒRƒ}ƒ“ƒh‚ðŽÀs‚µ‚Ä‰º‚³‚¢B *
+echo * 1. ãƒãƒƒãƒã‚’çµ‚äº†ã•ã›ã‚‹éš›ã¯ctrl+cã§å¼·åˆ¶çµ‚äº†ã•ã›ã¦ä¸‹ã•ã„ã€‚                      *
+echo * 2. åŒæ™‚ã«èµ·å‹•ã—ã¦ã„ã‚‹"AutoPsrProcessMonitor"ã¯çµ¶å¯¾ã«çµ‚äº†ã•ã›ãªã„ã§ä¸‹ã•ã„ã€‚   *
+echo * 3. ä¸‡ãŒä¸€çµ‚äº†ã•ã›ã¦ã—ã¾ã£ãŸå ´åˆã¯ã€åˆ¥é€”"psr /stop"ã‚³ãƒžãƒ³ãƒ‰ã‚’å®Ÿè¡Œã—ã¦ä¸‹ã•ã„ã€‚ *
 echo ********************************************************************************
 echo.
 
@@ -102,7 +102,7 @@ if !existsImgFileFlag! == true set /a lastNum=!existsImgFileNum!+1
 
 start "AutoPsrProcessMonitor" /min %AUTO_PSR_PROCESS_MONITOR_PATH% !lastNum!
 
-if not %1 == "" call :searchPid %1
+if not "%1" == "" call :searchPid %1
 if errorlevel 1 set pid=!errorlevel!
 
 call :startPsrFunc !prefixCnt! !pid!
@@ -118,7 +118,7 @@ for /l %%I in (0, 0, 0) do (
 	echo Captured Images Count : !cnt!
 	
 	if !cnt! geq !OUTPUT_NUM! (
-		echo ŽB‰eÏ‚Ý‰æ‘œƒLƒƒƒvƒ`ƒƒ”‚ª!OUTPUT_NUM!–‡‚ð’´‚¦‚Ü‚µ‚½BŒ»ÝA!cnt!–‡ŽB‰eÏ‚Ý‚Å‚·Bˆê’Uzipƒtƒ@ƒCƒ‹o—Í‚ðs‚¢‚Ü‚·B”•bì‹Æ‚ð’âŽ~‚µ‚Ä‚­‚¾‚³‚¢B| msg %username% /time:3
+		echo æ’®å½±æ¸ˆã¿ç”»åƒã‚­ãƒ£ãƒ—ãƒãƒ£æ•°ãŒ!OUTPUT_NUM!æžšã‚’è¶…ãˆã¾ã—ãŸã€‚ç¾åœ¨ã€!cnt!æžšæ’®å½±æ¸ˆã¿ã§ã™ã€‚ä¸€æ—¦zipãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ã‚’è¡Œã„ã¾ã™ã€‚æ•°ç§’ä½œæ¥­ã‚’åœæ­¢ã—ã¦ãã ã•ã„ã€‚| msg %username% /time:3
 
 		call %COPY_IMAGES_FUNC_PATH% !lastNum!
 		if !errorlevel! neq 2147483647 ( 
@@ -152,7 +152,7 @@ exit
 rem -----------
 
 
-rem ---ƒTƒuƒ‹[ƒ`ƒ“---
+rem ---ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³---
 
 :checkOs
 	ver | find "Version 6.1." > nul
