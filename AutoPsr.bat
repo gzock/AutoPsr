@@ -22,7 +22,7 @@ rem 検知間隔
 set INTERVAL=3
 
 rem いったん出力を行う画像の枚数の閾値
-set OUTPUT_NUM=5
+set OUTPUT_NUM=85
 
 set COPY_IMAGES_FUNC_PATH=%tmp%\copyImagesfunc.bat
 set AUTO_PSR_PROCESS_MONITOR_PATH=%tmp%\autoPsrProcessMonitor.bat
@@ -222,14 +222,12 @@ rem ---サブルーチン---
 	echo @echo off
 	echo setlocal enabledelayedexpansion
 	echo set cnt=%%1
-	echo echo ^^!cnt^^!
 
 	echo if not exist !SAVE_FILE_PATH!images ^(
 	echo mkdir !SAVE_FILE_PATH!images
 	echo ^)
 
 	echo for /F ^"delims=,^" %%%%a in ^('dir /B /S !PSR_TMP_SAVE_PATH! !pipe! findstr /i screenshot*.*^\.jpeg$'^) do ^(
-	echo echo ^^!cnt^^!
 	echo copy %%%%a !SAVE_FILE_PATH!images\^^!cnt^^!.jpg ^> nul
 	echo set /a cnt+=1
 	echo ^)
